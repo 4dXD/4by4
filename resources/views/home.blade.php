@@ -47,13 +47,13 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100 border border-secondary">
                             <a href="#">
-                                <img class="card-img-top" src="/svg/images1.jpg" alt=""></a>
-                            <div class="card-body">
+                                <img class="card-img-top mx-auto d-block" src="/svg/images1.jpg" height="190px"></a>
+                            <div class="card-body pt-2">
                                 <h4 class="card-title">
-                                    <a href="#">Oktoberfest</a>
+                                    <a href="#" class="text-danger">Oktoberfest</a>
                                 </h4>
                                 <div class="d-flex">
-                                    <div><img src= "/svg/bed2.png" style="height:25px;" class="pr-2" ></div>
+                                    <div><img src= "/svg/bed2.png" style="height:25px;" class="pr-2 img-fluid" alt="bed"></div>
                                     <div><img src= "/svg/meal2.png" style="height:25px;" class="pr-2"></div>
                                     <div><img src= "/svg/long2.png" style="height:25px;" class="pr-2"></div>
                                     <div><img src= "/svg/dol.png" style="height:25px;" class="pr-2"></div>
@@ -66,10 +66,13 @@
                                     <div class="pr-5"><strong>Celebrations: </strong>Parades, food, music</div>
                                 </div>
 
-                                <p class="card-text pt-2">Oktoberfest is the world's largest Volksfest. Held annually in Munich, Bavaria, Germany, it is a 16- to 18-day folk festival running from mid or late September to the first Sunday in October, with more than six million people from around the world attending the event every year.</p>
+                                <p class="card-text pt-2">Oktoberfest is the world's largest Volksfest.
+                                    Held annually in Munich, Bavaria, Germany, it is a 16- to 18-day folk festival running
+                                    from mid or late September to the first Sunday in October,
+                                    with more than six million people from around the world attending ... <a href="#">learn more</a></p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9734; &#9734; <a href="#"><span class="text-danger pl-3">328 ratings</span></a></small>
                             </div>
                         </div>
                     </div>
@@ -77,10 +80,10 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100 border border-secondary">
                             <a href="#">
-                                <img class="card-img-top mx-auto d-block pt-3" src="/svg/images2.jpg" ></a>
-                            <div class="card-body pt-4">
+                                <img class="card-img-top mx-auto d-block" src="/svg/images2.jpg" height="190px"></a>
+                            <div class="card-body pt-2">
                                 <h4 class="card-title">
-                                    <a href="#">Ottawa Children’s Festival</a>
+                                    <a href="#" class="text-danger">Ottawa Children’s Festival</a>
                                 </h4>
                                 <div class="d-flex">
                                     <div><img src= "/svg/bed2.png" style="height:25px;" class="pr-2" ></div>
@@ -94,28 +97,41 @@
                                     <div class="pr-5"><strong>Time: </strong>8:45 a.m. ~ 4:00 p.m.</div>
                                     <div class="pr-5"><strong>Address: </strong>294 Albert St, Ottawa, ON</div>
                                 </div>
-                                <p class="card-text pt-2">Since 1985, the Ottawa Children’s Festival (OCF) has hosted an annual celebration of the best in live performing arts for children. Creating programs for children aged two to 15, the Festival focuses on enriching school curriculum and promoting the arts as an integral part of children’s education; strives to present work that excites and challenges...</p>
+                                <p class="card-text pt-2">Since 1985, the Ottawa Children’s Festival (OCF) has hosted
+                                    an annual celebration of the best in live performing arts for children.
+                                    Creating programs for children aged two to 15, the Festival focuses on enriching
+                                    school curriculum and promoting the arts as an integral part of children’s education;
+                                    strives to present ... <a href="#">learn more</a></p></p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734; <a href="#"><span class="text-danger pl-3">124 ratings</span></a></small>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
+                        <div class="card h-100 border border-secondary">
                             <a href="#">
-                                <img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
+                                <img class="card-img-top mx-auto d-block" src="/svg/images3.jpg" height="190px"></a>
+                            <div class="card-body pt-2">
                                 <h4 class="card-title">
-                                    <a href="#">Event Three</a>
+                                    <a href="#" class="text-danger">Canadian Tulip Festival 2020</a>
                                 </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Amet numquam aspernatur!</p>
+                                <div class="d-flex">
+                                    <div><img src= "/svg/long2.png" style="height:25px;" class="pr-2"></div>
+                                    <div><img src= "/svg/dol.png" style="height:25px;" class="pr-2"></div>
+                                    <div><img src= "/svg/disability1.png" style="height:30px;" class="pr-2"></div>
+                                </div>
+                                <div>
+                                    <div class="pr-5"><strong>Date: </strong>May 8 ~ May 18, 2020</div>
+                                    <div class="pr-5"><strong>Time: </strong>8:45 a.m. ~ 4:00 p.m.</div>
+                                    <div class="pr-5"><strong>Address: </strong>Commissioners Park</div>
+                                </div>
+                                <p class="card-text pt-2">The Canadian Tulip Festival started in 1952, and since it is continually held in Ottawa the capital of Canada.
+                                    Thousands of Tulip flowers are spread everywhere over the city during the festival.. ... <a href="#">learn more</a></p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734; <a href="#"><span class="text-danger pl-3">78 ratings</span></a></small>
                             </div>
                         </div>
                     </div>
