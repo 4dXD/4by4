@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
+<style>
+  /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 
 <!-- Page Content -->
 <div class="container">
@@ -9,8 +21,95 @@
 
     <div class="col-lg-5">
       <!-- <h2 class="my-4">Map</h2> -->
-      <div class="map  mt-5">
-        <img style="width:100%" src="https://cdn5.vectorstock.com/i/1000x1000/48/69/ontario-province-map-vector-2934869.jpg" alt="">
+      <div class="map mt-5">
+        <!-- <img style="width:100%" src="https://cdn5.vectorstock.com/i/1000x1000/48/69/ontario-province-map-vector-2934869.jpg" alt=""> -->
+        <!-- Google Map -->
+        <div id="map"></div>
+        
+        <!-- map script -->
+        <script>
+      var map;
+      var infoWindow;
+
+      function initMap() {
+        // Waterloo Region
+        var myLatlng = {lat: 43.464, lng: -80.520};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatlng,
+          zoom: 10
+        });
+
+        setMarkers(map);
+
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      // Data for the markers consisting of a name, a LatLng and a zIndex for the
+      // order in which these markers should display on top of each other.
+      var festivals = [
+        ['Kitchener Waterloo OktoberFest', 43.464, -80.520, 2],
+        ['Elmira Maple Syrup Festival', 43.604, -80.542, 1]
+      ];
+
+      var markers = [];
+      var infowindows = [];
+
+      function setMarkers(map) {
+
+        for (var i = 0; i < festivals.length; i++) {
+          // alert(festivals[i][3]);
+          var festival = festivals[i];
+
+          eval("var marker" + i + " = new google.maps.Marker({ position: {lat: festival[1], lng: festival[2]}, map: map, title: festival[0], zIndex: festival[3]  });");
+          
+          var contentString = festival[0] + "<br>Lat: " + festival[1] + "<br>" + festival[2]
+            + "<br><a href='#' class='btn btn-info'>Detail...</a>";
+
+          eval("var infowindow" + i + " = new google.maps.InfoWindow({ content: contentString });");
+
+          // infowindows.push(infowindow);
+          eval("marker" + i + ".addListener('click', function() { infowindow" + i + ".open(map, marker" + i + "); });");
+        }
+      }
+
+      // Handle Location Error
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        /*
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+        */
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvbWIoBpy3ukwbEVlyVuyQEJAffOpYFaU&callback=initMap">
+    </script>
+
+        <!-- Google Map End -->
+
       </div>
     </div>
       <!-- /.col-lg-5 -->
@@ -20,7 +119,7 @@
 
                 
         <!-- search box start -->
-        <div class="region region-help alert alert-info messages info mt-5">
+        <div class="region region-help alert alert-info messages info mt-5 search">
           <span class="icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
           <section id="block-views-exp-hosts-listing-page"
                    class="block block-views clearfix collapsiblock-processed">
@@ -41,7 +140,7 @@
 
 
         <!-- search box start -->
-        <div class="region region-help alert alert-info messages info">
+        <!-- <div class="region region-help alert alert-info messages info">
                 <span class="icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                 <section
                     id="block-views-exp-hosts-listing-page"
@@ -87,10 +186,10 @@
                             </form>
                         </div>
                     </section>
-                </div>
+                </div> -->
                 <!-- search -->
 
-            <div  
+            <!-- <div  
                 id="carouselExampleIndicators"
                 class="carousel slide my-4"
                 data-ride="carousel">
@@ -111,7 +210,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -236,162 +335,5 @@
                         <!-- /.container -->
 
 
-
-
-
-
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-7">
-            <div class="region region-help alert alert-info messages info">
-                <span class="icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                <section
-                    id="block-views-exp-hosts-listing-page"
-                    class="block block-views clearfix collapsiblock-processed">
-
-                    <div class="content">
-                        <form
-                            action="/hosts/search/location/Ontario-78716"
-                            method="get"
-                            id="views-exposed-form-hosts-listing-page"
-                            accept-charset="UTF-8">
-                            <div>
-                                <div class="views-exposed-form">
-                                    <div class="views-exposed-widgets clearfix">
-                                        <div
-                                            id="edit-keyword-wrapper"
-                                            class="views-exposed-widget views-widget-filter-search_api_views_fulltext">
-                                            <label for="edit-keyword">Find Event/ Festival/ Volunteer</label>
-                                            <div class="views-widget">
-                                                <div class="form-item form-item-keyword form-type-textfield form-group">
-                                                    <input
-                                                        placeholder="Use filters or type a keyword to search, e.g. &quot;First name and Last name&quot;, description, etc."
-                                                        class="form-control form-text"
-                                                        type="text"
-                                                        id="edit-keyword"
-                                                        name="keyword"
-                                                        value=""
-                                                        size="10"
-                                                        maxlength="128"></div>
-                                                </div>
-                                            </div>
-                                            <div class="views-exposed-widget views-submit-button">
-                                                <button
-                                                    type="submit"
-                                                    id="edit-submit-hosts-listing"
-                                                    name=""
-                                                    value="Search"
-                                                    class="btn btn-primary form-submit">Search</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-                </div>
-
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci beatae
-                    magni doloribus sint reiciendis enim, placeat cumque deserunt sunt officia
-                    pariatur nulla! Doloribus modi doloremque culpa, sed officiis nam dicta?</p>
-                <div class="row">
-                    <div class="col-4">
-                        <img
-                            class="w-100"
-                            src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                            alt="">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                consequatur ipsa!</p>
-                        </div>
-                        <div class="col-4">
-                            <img
-                                class="w-100"
-                                src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                                alt="">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                    voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                    consequatur ipsa!</p>
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="w-100"
-                                    src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                                    alt="">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                        voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                        consequatur ipsa!</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <img
-                                        class="w-100"
-                                        src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                                        alt="">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                            voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                            consequatur ipsa!</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <img
-                                            class="w-100"
-                                            src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                                            alt="">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                                voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                                consequatur ipsa!</p>
-                                        </div>
-                                        <div class="col-4">
-                                            <img
-                                                class="w-100"
-                                                src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
-                                                alt="">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
-                                                    voluptatem distinctio nisi beatae molestias cumque dolore accusantium
-                                                    consequatur ipsa!</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-5">
-                                        <h1>map</h1>
-                                        <div class="img">
-                                          <img style="width:100%" src="https://cdn5.vectorstock.com/i/1000x1000/48/69/ontario-province-map-vector-2934869.jpg" alt="">
-                                        </div
-                                    </div>
-                                </div> -->
-    
-    <!-- <div class="row">
-        <div class="col-3">
-            <img src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" 
-            alt="" class="rounded-circle" style="width:150px; border:1px solid black;">
-        </div>
-        <div class="col-9">
-            <div><h1>freeCodeCamp</h1></div>
-            <div class = "d-flex">
-                <div class="pr-5"><strong>123</strong> followers</div>
-                <div class="pr-5"><strong>123</strong> posts</div>
-                <div class="pr-5"><strong>123</strong> following</div>
-            </div>
-            <div class="pt-4 font-weight-bold">freeCodeCamp.org</div>
-            <div>Lorem ipsum dolor sit ametng elit. Veritatis eaque ullam, tempora recusandae ducimus perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, deleniti!</div>
-            <div><a href="#">www.asdf.org</a></div>
-        </div>
-    </div>
-
-    <div class="row pt-4">
-        <div class="col-4">
-            <img class="w-100" src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" alt="">
-        </div>
-        <div class="col-4">
-            <img class="w-100" src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" alt="">
-        </div>
-        <div class="col-4">
-            <img class="w-100" src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" alt="">
-        </div>
-    </div> -->
-
 </div>
-@endsection
+

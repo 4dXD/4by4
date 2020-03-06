@@ -16,9 +16,9 @@ class DetailController extends Controller
         return view('detail');
     }
 
-    // public function index($postnumber)
-    // {
-    //     dd($postnumber);
-    //     return view('detail');
-    // }
+    public function index($postnumber)
+    {
+        dd($postnumber);
+        return view('detail');
+    }
 }

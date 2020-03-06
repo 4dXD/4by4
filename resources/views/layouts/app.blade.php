@@ -26,11 +26,26 @@
         margin-right: auto;
         margin-left: auto;
     }
+    @media (max-width: 767px) {
+        .map {
+            height: 200px;
+        }
+
+        .search {
+            margin-top: 5px !important;
+        }
+    }
 
     @media (min-width: 768px) {
         .container {
             width: 755px;
             max-width: 755px;
+        }
+        .map {
+            height: 300px;
+        }
+        .search {
+            margin-top: 5px !important;
         }
     }
 
@@ -76,8 +91,24 @@
             height: 90%;
     }
 
-    
+    .top-space{
+        margin-top:30px !important;
+    }
 
+
+    .detail-top-img {
+        height:auto;
+        width:100%;
+    }
+
+    .detail-top-img img{
+        height:auto;
+        width:100%;
+    }
+
+    .align-center{
+        text-align: center;
+    }
     </style>
     <!-- test wwoof -->
 </head>
