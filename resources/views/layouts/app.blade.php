@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <a class="navbar-brand d-flex" href="{{ url('/') }}">
                 <div><img src="/svg/ts.png"  style="width: 70px;" class="pr-3"></div>
-                <div class="pl-0 pt-3">Travel Shooting</div>
+                <div class="pl-0 pt-3">Travel Shooting, Travel Adds Experience</div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
