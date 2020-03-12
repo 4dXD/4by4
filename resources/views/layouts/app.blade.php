@@ -18,10 +18,30 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .img{
+            position:fixed;
+        }
+        
+        .detail-top-img {
+            height:auto;
+            width:100%;
+        }
+
+        .detail-top-img img{
+            height:auto;
+            width:100%;
+        }
+
+        .align-center{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand d-flex" href="{{ url('/') }}">
                 <div><img src="/svg/ts.png"  style="width: 70px;" class="pr-3"></div>
@@ -37,8 +57,22 @@
 
                 </ul>
 
+
+
+
+
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+                    <!-- Social Network -->
+                    <div class="row text-right">
+                        <div class="col-12 pt-2">
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e61bec0d28db771"></script>
+                    <!-- Social Network End -->
+
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

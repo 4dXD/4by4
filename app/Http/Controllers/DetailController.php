@@ -11,14 +11,14 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($postnumber)
+    public function index()
     {
-        return view('detail.index');
-    }
-
-    public function index($postnumber)
-    {
-        dd($postnumber);
         return view('detail');
     }
+
+    // public function index($postnumber)
+    // {
+    //     dd($postnumber);
+    //     return view('detail');
+    // }
 }
